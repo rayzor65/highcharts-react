@@ -1,7 +1,7 @@
 {
   "name": "highcharts-react-official",
-  "version": "1.3.0",
-  "main": "index.js",
+  "version": "2.0.0",
+  "main": "./dist/highcharts-react.min.js",
   "license": "SEE LICENSE IN <LICENSE>",
   "repository": {
     "type": "git",
@@ -15,27 +15,33 @@
   ],
   "scripts": {
     "test": "babel-tape-runner ./tests/*.node.js & browserify ./tests/chartRender.browser.js ./tests/testingEnvironment.browser.js -t [ babelify --presets [ env react ] ] | tape-run",
-    "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ env react ] ]"
+    "build-demo": "browserify ./demo/demo.jsx -o ./demo/bundle.js -t [ babelify --presets [ env react ] ]",
+    "build": "webpack --config webpack.config.js",
+    "release": "standard-version"
   },
-  "dependencies": {
-    "create-react-class": "^15.5.3",
-    "highcharts": "^6.0.1",
-    "highstock-release": "^6.0.1"
+  "peerDepedencies": {
+    "highcharts": ">=5.0.0",
+    "react": ">=16.0"
   },
   "devDependencies": {
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "babel-tape-runner": "^2.0.1",
     "babelify": "^7.3.0",
     "browserify": "^14.3.0",
     "extend-tape": "^1.2.0",
-    "react": "^15.5.4",
-    "react-addons-test-utils": "^15.5.1",
-    "react-dom": "^15.5.4",
-    "react-test-renderer": "^15.5.4",
+    "highcharts": "^6.0.0",
+    "react": "^16.4.0",
+    "react-addons-test-utils": "^15.6.2",
+    "react-dom": "^16.4.0",
+    "react-test-renderer": "^16.4.0",
     "react-unit": "^3.0.0",
     "standard": "^10.0.2",
-    "tape": "^4.6.3",
-    "tape-run": "^3.0.0"
+    "standard-version": "^4.4.0",
+    "tape": "^4.9.1",
+    "tape-run": "^3.0.0",
+    "webpack": "^3.12.0"
   }
 }
